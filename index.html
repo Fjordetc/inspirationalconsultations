@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inspirational Consultations | Jenny Biancotti</title>
+<meta name="description" content="Inspirational Consultations — counselling, supervision and consultation with Jenny Biancotti. Space for you.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400&family=Nunito+Sans:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #faf7f1;
+    --cream-deep: #f2ede2;
+    --sage: #93b579;
+    --sage-soft: #e8f0e0;
+    --sage-deep: #6f9457;
+    --blue: #4d8fa1;
+    --blue-soft: #e4eef0;
+    --trunk: #77828c;
+    --text: #40453f;
+    --text-soft: #6d7268;
+    --radius: 18px;
+    --shadow: 0 10px 30px rgba(80,90,70,0.08);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    position:relative;
+    margin:0;
+    font-family:'Nunito Sans', sans-serif;
+    color:var(--text);
+    background:var(--cream);
+    line-height:1.7;
+    font-weight:400;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    color:var(--text);
+    line-height:1.25;
+    margin:0 0 0.5em 0;
+  }
+  h1{font-size:clamp(2.1rem, 5vw, 3.4rem); font-weight:600;}
+  h2{font-size:clamp(1.6rem, 3vw, 2.2rem);}
+  h3{font-size:1.2rem; color:var(--sage-deep); font-weight:600;}
+  p{margin:0 0 1em 0;}
+  a{color:var(--blue);}
+  .container{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 28px;
+    position:relative;
+  }
+  section{padding:60px 0; position:relative;}
+  section[id], #top{scroll-margin-top:68px;}
+  #about{scroll-margin-top:136px;}
+  .eyebrow{
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.78rem;
+    color:var(--sage-deep);
+    font-weight:700;
+    margin-bottom:14px;
+  }
+
+  /* ---------- Scroll reveal ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity 0.8s ease, transform 0.8s ease;
+    will-change:opacity, transform;
+  }
+  .reveal.visible{opacity:1; transform:translateY(0);}
+  .reveal-delay-1.visible{transition-delay:0.12s;}
+  .reveal-delay-2.visible{transition-delay:0.24s;}
+  .reveal-delay-3.visible{transition-delay:0.36s;}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1 !important; transform:none !important; transition:none !important;}
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:60;
+    background:var(--cream);
+    border-bottom:1px solid rgba(120,130,110,0.14);
+  }
+  .nav-inner{
+    max-width:1080px;
+    margin:0 auto;
+    padding:10px 28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:var(--text);
+  }
+  .brand img{height:46px; width:auto; display:block;}
+  .brand-name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.05rem;
+    color:var(--blue);
+    letter-spacing:0.01em;
+  }
+  nav.links{
+    display:flex;
+    align-items:center;
+    gap:26px;
+    flex-wrap:wrap;
+  }
+  nav.links a{
+    text-decoration:none;
+    color:var(--text-soft);
+    font-size:0.92rem;
+    font-weight:600;
+    transition:color 0.2s ease;
+    display:flex;
+    align-items:center;
+  }
+  nav.links a:hover{color:var(--sage-deep);}
+  .nav-cta{
+    background:var(--sage-deep);
+    color:#fff !important;
+    padding:9px 18px;
+    border-radius:999px;
+    font-size:0.88rem !important;
+    margin-left:16px;
+  }
+  .nav-cta:hover{background:var(--blue) !important; color:#fff !important;}
+  #nav-toggle{display:none;}
+  .burger{display:none;}
+
+  /* ---------- Pinned hero + intro ---------- */
+  .pin-wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 28px 48px 28px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:48px;
+    position:relative;
+  }
+  .pin-left{padding-top:64px;}
+  .pin-right{position:relative;}
+  .pin-sticky{
+    position:sticky;
+    top:110px;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding-top:70px;
+  }
+  .tree-frame{position:relative; width:100%; max-width:420px;}
+  .tree-frame img{width:100%; height:auto; display:block; filter:drop-shadow(0 18px 30px rgba(90,110,80,0.18));}
+
+  .hero-block{max-width:52ch;}
+  .tagline-floral{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Sacramento', cursive;
+    font-size:2rem;
+    color:var(--sage-deep);
+    margin-bottom:6px;
+    line-height:1;
+  }
+  .tagline-floral .leaf-glyph{
+    width:20px; height:20px; flex-shrink:0;
+  }
+  .hero-block p.lede{
+    color:var(--text-soft);
+  }
+  .btn{
+    display:inline-block;
+    background:var(--blue);
+    color:#fff;
+    text-decoration:none;
+    padding:9px 20px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:0.88rem;
+    box-shadow:var(--shadow);
+    transition:transform 0.2s ease, background 0.2s ease;
+    border:none;
+    cursor:pointer;
+  }
+  .btn:hover{background:var(--sage-deep); transform:translateY(-2px);}
+
+  /* drifting leaves — anchored to the page itself (not the viewport), so each
+     leaf sits at a fixed point down the document and scrolls with the rest
+     of the content, the same as everything else on the page */
+  .leaf-field{
+    position:absolute;
+    top:0; left:0; right:0;
+    height:100%;
+    overflow:visible;
+    pointer-events:none;
+    z-index:500;
+  }
+  .drift-leaf{
+    position:absolute;
+    opacity:0;
+    animation-name:drift;
+    animation-timing-function:ease-in-out;
+    animation-iteration-count:infinite;
+    animation-duration:var(--dur, 16s);
+    animation-delay:var(--delay, 0s);
+  }
+  .drift-leaf path{
+    transition:fill 0.6s ease;
+  }
+  @keyframes drift{
+    0%{transform:translateY(0) rotate(0deg); opacity:0;}
+    12%{opacity:0.55;}
+    88%{opacity:0.45;}
+    100%{transform:translateY(90px) rotate(35deg); opacity:0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .drift-leaf{animation:none;}
+    .drift-leaf{display:none;}
+  }
+
+  .about-intro{padding-top:26px; position:relative; z-index:1;}
+  .lead-in{
+    max-width:64ch;
+    color:var(--text-soft);
+    font-size:1.05rem;
+  }
+
+  .jenny-card{
+    background:#fff;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:28px;
+    margin-top:32px;
+    max-width:none;
+  }
+  .photo-slot{
+    aspect-ratio:3/1.5;
+    width:100%;
+    border-radius:14px;
+    border:2px dashed rgba(111,148,87,0.4);
+    background:var(--sage-soft);
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    color:var(--sage-deep);
+    text-align:center;
+    padding:16px;
+    margin-bottom:22px;
+    overflow:hidden;
+  }
+  .photo-slot svg{width:34px; height:34px; opacity:0.7;}
+  .photo-slot span{font-size:0.85rem; font-weight:700;}
+  .photo-slot.photo-filled{
+    border-style:solid;
+    border-color:transparent;
+    background:none;
+    padding:0;
+  }
+  .photo-slot.photo-filled img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 22%;
+    display:block;
+  }
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+  }
+  .chip{
+    background:var(--cream);
+    border:1px solid rgba(120,130,110,0.2);
+    color:var(--sage-deep);
+    padding:9px 18px;
+    border-radius:999px;
+    font-size:0.9rem;
+    font-weight:700;
+  }
+  .chip-grey{
+    background:#e2e0da;
+    border:none;
+    color:#4a4c44;
+    padding:9px 18px;
+    border-radius:999px;
+    font-size:0.9rem;
+    font-weight:700;
+  }
+
+  /* Sections alternating tint */
+  .tint{background:var(--sage-soft);}
+  .tint-blue{background:var(--blue-soft);}
+
+  /* Parallax photo panels */
+  .parallax-photo{
+    position:absolute;
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    background:var(--blue-soft);
+    border:2px dashed rgba(77,143,161,0.35);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:14px;
+    color:var(--blue);
+    font-size:0.8rem;
+    font-weight:700;
+    z-index:0;
+  }
+  .parallax-photo svg{width:34px; height:34px; opacity:0.7; display:block; margin:0 auto 8px auto;}
+
+  /* Cards grid */
+  .container-wide{
+    max-width:1180px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+    margin-top:36px;
+    position:relative;
+    z-index:1;
+    align-items:start;
+  }
+  .card{
+    background:#fff;
+    border-radius:var(--radius);
+    padding:28px;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+  }
+  .card p:last-of-type{margin-bottom:0;}
+  .card .tag-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:22px;
+    padding-top:18px;
+    border-top:1px solid rgba(120,130,110,0.14);
+  }
+  .card .tag-row.tag-grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  .card .tag{
+    background:var(--sage-soft);
+    color:var(--sage-deep);
+    font-size:0.7rem;
+    font-weight:700;
+    padding:5px 10px;
+    border-radius:999px;
+    text-align:center;
+  }
+
+  /* FAQ */
+  .faq-item{
+    border-bottom:1px solid rgba(120,130,110,0.18);
+    padding:22px 0;
+  }
+  .faq-item:first-child{padding-top:0;}
+  .faq-item:last-child{border-bottom:none; padding-bottom:0;}
+  .faq-item h3{margin-bottom:8px;}
+  .faq-item p{color:var(--text-soft); margin-bottom:0;}
+
+  /* Fees */
+  .fee-table{
+    background:#fff;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:8px 0;
+    margin-top:30px;
+    overflow:hidden;
+    position:relative; z-index:1;
+  }
+  .fee-row{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:18px 28px;
+    border-bottom:1px solid rgba(120,130,110,0.12);
+  }
+  .fee-row:last-child{border-bottom:none;}
+  .fee-row .service{font-weight:700; color:var(--text);}
+  .fee-row .detail{color:var(--text-soft); font-size:0.92rem;}
+  .fee-row .price{font-weight:700; color:var(--blue); white-space:nowrap;}
+  .fee-note{
+    margin-top:18px;
+    font-size:0.76rem;
+    color:var(--text-soft);
+    font-style:italic;
+  }
+
+  /* Location */
+  .location-box{
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+    background:#fff;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:28px;
+    margin-top:30px;
+    position:relative; z-index:1;
+  }
+
+  /* Acknowledgement */
+  .acknowledgement{
+    background:var(--cream-deep);
+    padding:26px 30px;
+    border-radius:var(--radius);
+    color:var(--text-soft);
+    font-style:italic;
+    margin-top:10px;
+  }
+
+  /* Contact */
+  .contact-wrap{
+    display:grid;
+    grid-template-columns:0.8fr 1.2fr;
+    gap:40px;
+    margin-top:36px;
+    align-items:start;
+    position:relative; z-index:1;
+  }
+  .contact-details{
+    background:#fff;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:28px;
+  }
+  .contact-details a{
+    display:block;
+    margin-bottom:14px;
+    color:var(--text);
+    text-decoration:none;
+    font-weight:600;
+  }
+  .contact-details a:hover{color:var(--blue);}
+  .contact-details .label{
+    display:block;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--sage-deep);
+    font-weight:700;
+    margin-bottom:4px;
+  }
+  .linkedin-badge{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:0 !important;
+    color:var(--text) !important;
+  }
+  .linkedin-badge:hover{color:var(--blue) !important;}
+  .linkedin-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:28px;
+    height:28px;
+    border-radius:6px;
+    background:#0A66C2;
+    flex-shrink:0;
+  }
+  form{
+    background:#fff;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:28px;
+  }
+  .form-row{margin-bottom:18px;}
+  label{
+    display:block;
+    font-size:0.85rem;
+    font-weight:700;
+    color:var(--text);
+    margin-bottom:6px;
+  }
+  input, textarea{
+    width:100%;
+    padding:12px 14px;
+    border-radius:10px;
+    border:1px solid rgba(120,130,110,0.3);
+    background:var(--cream);
+    font-family:'Nunito Sans', sans-serif;
+    font-size:0.95rem;
+    color:var(--text);
+  }
+  input:focus, textarea:focus{
+    outline:2px solid var(--blue);
+    outline-offset:1px;
+  }
+  textarea{resize:vertical; min-height:120px;}
+  #form-success{
+    display:none;
+    background:var(--sage-soft);
+    color:var(--sage-deep);
+    padding:14px 18px;
+    border-radius:10px;
+    font-weight:600;
+    margin-bottom:18px;
+  }
+
+  footer{
+    background:var(--trunk);
+    color:#f1efe9;
+    padding:48px 0 28px 0;
+  }
+  footer .container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:10px;
+  }
+  footer img{height:56px; margin-bottom:8px; filter:brightness(0) invert(1);}
+  footer a{color:#f1efe9; text-decoration:underline;}
+  footer .tagline-footer{
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-size:0.78rem;
+    color:#dfe3d8;
+  }
+  footer .copyright{
+    font-size:0.8rem;
+    color:#c7ccc0;
+    margin-top:14px;
+  }
+
+  @media (max-width: 900px){
+    .pin-wrap{grid-template-columns:1fr;}
+    .pin-right{display:none;}
+    .pin-left{padding-top:40px;}
+    .photo-slot{aspect-ratio:4/3;}
+    .grid{grid-template-columns:1fr;}
+    .parallax-photo{display:none;}
+  }
+  @media (max-width: 800px){
+    nav.links{
+      display:none;
+      position:absolute;
+      top:100%; left:0; right:0;
+      background:var(--cream);
+      flex-direction:column;
+      align-items:flex-start;
+      padding:20px 28px;
+      border-bottom:1px solid rgba(120,130,110,0.14);
+      gap:16px;
+    }
+    #nav-toggle:checked ~ nav.links{display:flex;}
+    .burger{
+      display:block;
+      background:none;
+      border:none;
+      font-size:1.6rem;
+      cursor:pointer;
+      color:var(--text);
+    }
+    .contact-wrap{grid-template-columns:1fr;}
+    .location-box{flex-direction:column;}
+  }
+  .name-script{
+    font-family:'Sacramento', cursive;
+    font-size:clamp(1.6rem, 3.5vw, 2.3rem);
+    color:var(--blue);
+    display:block;
+    margin:-6px 0 14px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="leaf-field" aria-hidden="true">
+  <svg class="drift-leaf" style="left:18%; top:1%;  --dur:4.3s; --delay:0s;   width:14px;" viewBox="0 0 24 24"><path d="M12 2C8 6 4 10 4 15a8 8 0 0 0 16 0c0-5-4-9-8-13z" fill="#6f9457"/></svg>
+  <svg class="drift-leaf" style="left:55%; top:2%;  --dur:5.3s; --delay:2s;   width:16px;" viewBox="0 0 24 24"><path d="M12 2C8 6 4 10 4 15a8 8 0 0 0 16 0c0-5-4-9-8-13z" fill="#6f9457"/></svg>
+  <svg class="drift-leaf" style="left:8%;  top:4%;  --dur:5s;   --delay:0s;   width:15px;" viewBox="0 0 24 24"><path d="M12 2C8 6 4 10 4 15a8 8 0 0 0 16 0c0-5-4-9-8-13z" fill="#6f9457"/></svg>
+  <svg class="drift-leaf" style="left:70%; top:13%; --dur:6.3s; --delay:4s;   width:18px;" viewBox="0 0 24 24"><path d="M12 2C8 6 4 10 4 15a8 8 0 0 0 16 0c0-5-4-9-8-13z" fill="#6f9457"/></svg>
+  <svg class="drift-leaf" style="left:25%; top:24%; --dur:5.3s; --delay:12s;  width:16px;" viewBox="0 0 24 24"><path d="M12 2C8 6 4 10 4 15a8 8 0 0 0 16 0c0-5-4-9-8-13z" fill="#6f9457"/></svg>
+  <svg class="drift-leaf" style="left:45%; top:35%; --dur:5.7s; --delay:6s;   width:15px;" viewBox="0 0 24 24"><path d="M12 2C8 6 4 10 4 15a8 8 0 0 0 16 0c0-5-4-9-8-13z" fill="#6f9457"/></svg>
+  <svg class="drift-leaf" style="left:80%; top:44%; --dur:5.7s; --delay:9s;   width:16px;" viewBox="0 0 24 24"><path d="M12 2C8 6 4 10 4 15a8 8 0 0 0 16 0c0-5-4-9-8-13z" fill="#6f9457"/></svg>
+  <svg class="drift-leaf" style="left:12%; top:58%; --dur:7s;   --delay:2s;   width:20px;" viewBox="0 0 24 24"><path d="M12 2C8 6 4 10 4 15a8 8 0 0 0 16 0c0-5-4-9-8-13z" fill="#6f9457"/></svg>
+  <svg class="drift-leaf" style="left:60%; top:70%; --dur:4.7s; --delay:8s;   width:17px;" viewBox="0 0 24 24"><path d="M12 2C8 6 4 10 4 15a8 8 0 0 0 16 0c0-5-4-9-8-13z" fill="#6f9457"/></svg>
+  <svg class="drift-leaf" style="left:32%; top:84%; --dur:6s;   --delay:5s;   width:15px;" viewBox="0 0 24 24"><path d="M12 2C8 6 4 10 4 15a8 8 0 0 0 16 0c0-5-4-9-8-13z" fill="#6f9457"/></svg>
+  <svg class="drift-leaf" style="left:50%; top:90%; --dur:5.3s; --delay:11s;  width:16px;" viewBox="0 0 24 24"><path d="M12 2C8 6 4 10 4 15a8 8 0 0 0 16 0c0-5-4-9-8-13z" fill="#6f9457"/></svg>
+  <svg class="drift-leaf" style="left:85%; top:94%; --dur:7.3s; --delay:14s;  width:16px;" viewBox="0 0 24 24"><path d="M12 2C8 6 4 10 4 15a8 8 0 0 0 16 0c0-5-4-9-8-13z" fill="#6f9457"/></svg>
+</div>
+
+<header>
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <img src="assets/tree-icon.png" alt="Inspirational Consultations tree logo">
+      <span class="brand-name">Inspirational Consultations</span>
+    </a>
+    <input type="checkbox" id="nav-toggle">
+    <label for="nav-toggle" class="burger">&#9776;</label>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#faq">FAQs</a>
+      <a href="#fees">Fees</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<div id="top"></div>
+
+<!-- ============ Pinned hero + about intro ============ -->
+<div class="pin-wrap">
+  <div class="pin-left">
+
+    <div class="hero-block" style="position:relative;">
+      <div class="tagline-floral">
+        Enhance &middot; Inspire &middot; Engage
+      </div>
+      <h1>Space for you</h1>
+      <span class="name-script">with Jenny Biancotti</span>
+      <p class="lede">Counselling, supervision and consultation with <strong>Jenny Biancotti</strong>,<br>in Mount Lawley and online.</p>
+      <div>
+        <a href="#contact" class="btn">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="about-intro reveal" id="about" style="position:relative;">
+      <h2>Why Inspirational Consultations?</h2>
+      <p class="lead-in"><strong>Inspirational Consultations</strong> is about coming together. My role is to support you to explore your own path, whether you're a parent, a child, an individual, or a professional navigating your practice.</p>
+      <p class="lead-in">There's a lot of advice, information and expectation directed at us daily, and it can start to feel overwhelming. Inspiration needs space: to connect, to be heard, and to work out what will actually help. That's what Inspirational Consultations offers.</p>
+
+      <div class="jenny-card reveal">
+        <div class="photo-slot photo-filled">
+          <img src="assets/jenny-photo.jpg" alt="Jenny Biancotti">
+        </div>
+        <h3>About Jenny Biancotti</h3>
+        <p>Jenny is a social worker with almost 20 years' experience working with children and families in Perth and London, including several years within the child protection system in both Australia and the UK.</p>
+        <p>Alongside this, she has worked as a trainer and facilitator across Perth, Singapore and London, and spent time as a school social worker in Perth. She now runs her own practice, offering counselling, supervision and training.</p>
+        <p>Jenny draws on her training and experience, and keeps learning and building on her practice. If she doesn't think she's the right fit for you, she'll help point you toward someone who is.</p>
+        <div class="chips">
+          <span class="chip">Client-centred</span>
+          <span class="chip">Strengths-based</span>
+          <span class="chip">Trauma-informed</span>
+          <span class="chip">Neuroaffirming</span>
+          <span class="chip">Connection-based</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pin-right">
+    <div class="pin-sticky">
+      <div class="tree-frame" id="parallax-tree">
+        <img src="assets/tree-hero.png" alt="Inspirational Consultations tree">
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="services" class="tint reveal">
+  <div class="container container-wide">
+    <div class="parallax-photo" id="parallax-photo-1" style="width:150px; height:190px; top:-30px; right:-10px; transform:rotate(6deg);" aria-hidden="true">
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="15" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M21 17l-5-5-4 4-3-3-6 6"/></svg>
+        Photo coming soon
+      </div>
+    </div>
+    <div class="eyebrow">How I can help</div>
+    <h2>Services &amp; Support</h2>
+    <div class="grid">
+      <div class="card reveal reveal-delay-1">
+        <h3>Counselling</h3>
+        <p>Individual counselling for children and adults. With your consent, this can include working alongside teachers, GPs, psychologists, OTs and other specialists involved in your care.</p>
+        <div class="tag-row">
+          <span class="tag">Anxiety</span>
+          <span class="tag">Grief &amp; loss</span>
+          <span class="tag">Friendship &amp; social skills</span>
+          <span class="tag">Parenting</span>
+          <span class="tag">Neurodivergence</span>
+          <span class="tag">Mental health</span>
+        </div>
+      </div>
+      <div class="card reveal reveal-delay-2">
+        <h3>Supervision &amp; Consultation</h3>
+        <p>One-on-one or group supervision for social workers and allied health professionals, along with case consultation and reflective practice support &mdash; grounded in a client-centred, facilitative approach.</p>
+        <div class="tag-row">
+          <span class="tag">1:1 supervision</span>
+          <span class="tag">Group supervision</span>
+          <span class="tag">Case consultation</span>
+          <span class="tag">Reflective practice</span>
+        </div>
+      </div>
+      <div class="card reveal reveal-delay-3">
+        <h3>Training &amp; Workshops</h3>
+        <p>Training and workshops for parents and professionals, drawing on protective behaviours frameworks and social &amp; emotional skills programs for children.</p>
+        <div class="tag-row">
+          <span class="tag">Protective Behaviours</span>
+          <span class="tag">Kimochis</span>
+          <span class="tag">UR Strong</span>
+          <span class="tag">Parent workshops</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="approach" class="reveal">
+  <div class="container">
+    <div class="eyebrow">My approach</div>
+    <h2>Grounded in compassion and connection</h2>
+    <p class="lead-in">Jenny's practice is client-centred, strengths-based, trauma-informed and neuroaffirming, and takes into account how culture, identity and circumstance shape each person's experience. She draws on a range of clinical approaches, and is trained in the use of art, play, Lego and drumming in therapeutic work.</p>
+    <p class="lead-in" style="margin-bottom:10px;">Theoretical frameworks and approaches she draws on include:</p>
+    <div class="chips">
+      <span class="chip-grey">CBT</span>
+      <span class="chip-grey">Somatic work</span>
+      <span class="chip-grey">Art therapy</span>
+      <span class="chip-grey">Therapeutic drumming</span>
+      <span class="chip-grey">Lego therapy</span>
+      <span class="chip-grey">Social &amp; emotional skill programs</span>
+      <span class="chip-grey">Lifestory work</span>
+      <span class="chip-grey">Signs of Safety</span>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="tint-blue reveal">
+  <div class="container">
+    <div class="eyebrow">FAQs</div>
+    <h2>Good to know</h2>
+    <div style="margin-top:20px;">
+      <div class="faq-item">
+        <h3>What if I haven't had supervision or counselling before?</h3>
+        <p>That's fine. I'll work with you to figure out the type of support you need. If I don't think I'm the right fit, I'll point you toward a practitioner who is.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What's the difference between a social worker and other helping professionals?</h3>
+        <p>Social work is a tertiary-qualified profession grounded in social justice, human rights and the empowerment of individuals and communities. Social work training puts particular emphasis on advocacy, strengths-based practice, and working with the whole picture: your relationships and circumstances, alongside the issue you've come in for.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do you offer a Medicare rebate?</h3>
+        <p>Not at this time &mdash; I've chosen to offer low-fee sessions without a rebate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fees" class="reveal">
+  <div class="container">
+    <div class="eyebrow">Fees</div>
+    <h2>Session rates</h2>
+    <div class="fee-table">
+      <div class="fee-row">
+        <div>
+          <div class="service">Supervision</div>
+          <div class="detail">In person (Mondays) or online (Mondays, Thursdays &amp; Fridays)</div>
+        </div>
+        <div class="price">$165 / session</div>
+      </div>
+      <div class="fee-row">
+        <div>
+          <div class="service">Social Work Support &mdash; Children (0&ndash;18)</div>
+          <div class="detail">In person, Mondays &middot; 50 minutes</div>
+        </div>
+        <div class="price">$110 / session</div>
+      </div>
+      <div class="fee-row">
+        <div>
+          <div class="service">Social Work Support &mdash; Adults</div>
+          <div class="detail">In person, Mondays &middot; 1 hour</div>
+        </div>
+        <div class="price">$120 / session</div>
+      </div>
+      <div class="fee-row">
+        <div>
+          <div class="service">Parent Consultation</div>
+          <div class="detail">Phone or in person, including follow-ups</div>
+        </div>
+        <div class="price">Enquire</div>
+      </div>
+    </div>
+    <p class="fee-note">No Medicare rebate applies to sessions at this time. Fees current as of 2026 &mdash; please get in touch to confirm current pricing and availability.</p>
+  </div>
+</section>
+
+<section id="contact" class="tint-blue reveal">
+  <div class="container">
+    <div class="eyebrow">Get in touch</div>
+    <h2>Let's start a conversation</h2>
+    <p class="lead-in">Happy to arrange a free, no-obligation 10-minute conversation so you can ask questions and get a feel for whether I'm the right fit for you.</p>
+    <div class="contact-wrap">
+      <div class="contact-details">
+        <a href="tel:0406872818"><span class="label">Phone</span>0406 872 818</a>
+        <a href="#" class="js-email"><span class="label">Email</span><span class="js-email-text">Loading&hellip;</span></a>
+        <a href="https://www.linkedin.com/in/jenny-biancotti-b23b99a2/" target="_blank" rel="noopener" class="linkedin-badge">
+          <span class="linkedin-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          </span>
+          <span>Connect on LinkedIn</span>
+        </a>
+      </div>
+      <form id="contact-form">
+        <div id="form-success">Thanks &mdash; your message has been noted. Jenny will be in touch soon.</div>
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-row">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="tint reveal">
+  <div class="container">
+    <div class="eyebrow">Location</div>
+    <h2>Where sessions are held</h2>
+    <div class="location-box">
+      <div>
+        <p style="margin-bottom:6px;"><strong>3/1 Almondbury Rd, Mount Lawley</strong></p>
+        <p style="color:var(--text-soft); margin-bottom:0;">In-person sessions available Mondays. Online sessions also available. Please note the consulting room is upstairs with no lift access &mdash; get in touch if you have any concerns about mobility or access, so we can make sure it works for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="container">
+    <div class="eyebrow">Acknowledgement of Country</div>
+    <div class="acknowledgement">
+      <p>I acknowledge the Whadjuk Noongar people of the Noongar Nation, the traditional owners of the land I live and work on, and pay my respects to their elders past and present &mdash; and to the world's oldest living culture, with its rich history of healing, storytelling and community.</p>
+      <p style="margin-bottom:0;">My own father arrived in Perth by boat from Malta, and my mother's family migrated here from Italy. Growing up, I heard how they were treated when they arrived, including my dad being hit by teachers for not speaking English. What I was never taught was the history of this land's traditional owners, or that it already belonged to them long before my family arrived. That's a learning journey I'm still on.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <img src="assets/tree-icon.png" alt="Inspirational Consultations">
+    <div class="tagline-footer">Enhance &middot; Inspire &middot; Engage</div>
+    <div><a href="#" class="js-email"><span class="js-email-text">Loading&hellip;</span></a> &middot; <a href="tel:0406872818">0406 872 818</a></div>
+    <div class="copyright">&copy; 2026 Inspirational Consultations &mdash; Jenny Biancotti</div>
+  </div>
+</footer>
+
+<script>
+  // Email is base64-encoded here and decoded on load, rather than sitting in
+  // the page source as plain text — a simple deterrent against basic scrapers
+  // that just regex raw HTML/JS for an @ address. Not bulletproof, but stops
+  // the low-effort harvesting that plain-text addresses invite.
+  (function(){
+    var addr = atob('aW5zcGlyZWRfY29tbXVuaWNhdGlvbnNAb3V0bG9vay5jb20=');
+    document.querySelectorAll('.js-email').forEach(function(a){
+      a.href = 'mailto:' + addr;
+    });
+    document.querySelectorAll('.js-email-text').forEach(function(el){
+      el.textContent = addr;
+    });
+  })();
+
+  // Manual nav-link scrolling (rather than relying on CSS scroll-margin-top,
+  // which some browsers apply inconsistently for anchor navigation). Each
+  // link gets an explicit pixel offset so it lands exactly where intended —
+  // "About" gets extra breathing room below the header, the rest sit flush.
+  (function(){
+    var HEADER_FLUSH = 68;
+    var ABOUT_GAP = 204; // 68px header height + 136px visible gap below it
+    document.querySelectorAll('a[href^="#"]').forEach(function(link){
+      var id = link.getAttribute('href').slice(1);
+      if (!id) return;
+      var target = document.getElementById(id);
+      if (!target) return;
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        var offset = (id === 'about') ? ABOUT_GAP : HEADER_FLUSH;
+        var targetY = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+        history.pushState(null, '', '#' + id);
+      });
+    });
+  })();
+
+  // Contact form placeholder submit handler — no backend wired up yet.
+  document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    this.reset();
+  });
+
+  // Scroll reveal
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function(el){ el.classList.add('visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+
+  // Parallax on scroll: watermark, tree, floating photo placeholders
+  (function(){
+    var tree = document.getElementById('parallax-tree');
+    var p1 = document.getElementById('parallax-photo-1');
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+    var ticking = false;
+    function update(){
+      var y = window.scrollY || window.pageYOffset;
+      if (tree) tree.style.transform = 'translateY(' + (y * 0.04) + 'px)';
+      if (p1) p1.style.transform = 'rotate(6deg) translateY(' + (y * -0.05) + 'px)';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if (!ticking){
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+    update();
+  })();
+
+  // Leaves change colour with how far down the WHOLE page you've scrolled —
+  // green near the top, through orange and red, to brown by the time you
+  // reach the Acknowledgement of Country at the bottom. Not tied to each
+  // leaf's own fall loop — every leaf on screen shares the same colour at
+  // any given scroll position.
+  (function(){
+    var leafPaths = document.querySelectorAll('.drift-leaf path');
+    if (!leafPaths.length) return;
+    var stops = [
+      { at: 0.00, color: '#6f9457' }, // green
+      { at: 0.25, color: '#d68a2e' }, // orange
+      { at: 0.50, color: '#b8452f' }, // red
+      { at: 0.75, color: '#6b4a34' }  // brown
+    ];
+    var ticking = false;
+    function colorFor(frac){
+      var chosen = stops[0].color;
+      for (var i = 0; i < stops.length; i++){
+        if (frac >= stops[i].at) chosen = stops[i].color;
+      }
+      return chosen;
+    }
+    function update(){
+      var docH = document.documentElement.scrollHeight - window.innerHeight;
+      var frac = docH > 0 ? Math.min(1, Math.max(0, (window.scrollY || window.pageYOffset) / docH)) : 0;
+      var color = colorFor(frac);
+      leafPaths.forEach(function(p){ p.style.fill = color; });
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if (!ticking){
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+</script>
+
+</body>
+</html>
