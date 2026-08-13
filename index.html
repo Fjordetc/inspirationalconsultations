@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inspirational Consultations | Jenny Biancotti</title>
 <meta name="description" content="Inspirational Consultations — counselling, supervision and consultation with Jenny Biancotti. Space for you.">
+<!-- Social share / Open Graph. NOTE: replace REPLACE-WITH-DOMAIN with the live domain once registered, or previews won't load the image. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Inspirational Consultations | Jenny Biancotti">
+<meta property="og:description" content="Counselling, supervision and consultation with Jenny Biancotti, in Mount Lawley and online. Space for you.">
+<meta property="og:image" content="https://REPLACE-WITH-DOMAIN/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://REPLACE-WITH-DOMAIN/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inspirational Consultations | Jenny Biancotti">
+<meta name="twitter:description" content="Counselling, supervision and consultation with Jenny Biancotti, in Mount Lawley and online. Space for you.">
+<meta name="twitter:image" content="https://REPLACE-WITH-DOMAIN/assets/og-image.jpg">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
@@ -478,7 +491,8 @@
   }
 
   /* Acknowledgement */
-  .acknowledgement{
+  .ack-section{position:relative;}
+  .acknowledgement{position:relative; overflow:hidden;
     background:var(--cream-deep);
     padding:26px 30px;
     border-radius:var(--radius);
@@ -486,6 +500,19 @@
     font-style:italic;
     margin-top:10px;
   }
+  .acknowledgement::before{
+    content:"";
+    position:absolute;
+    top:50%; right:-2%;
+    transform:translateY(-50%);
+    width:52%; height:150%;
+    background:url('assets/tree-watermark.png') no-repeat center right;
+    background-size:contain;
+    opacity:0.13;
+    pointer-events:none;
+  }
+  .acknowledgement > p{position:relative; z-index:1;}
+  @media (max-width:760px){ .acknowledgement::before{opacity:0.09; width:80%;} }
 
   /* Contact */
   .contact-wrap{
@@ -519,24 +546,6 @@
     color:var(--sage-deep);
     font-weight:700;
     margin-bottom:4px;
-  }
-  .linkedin-badge{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:0 !important;
-    color:var(--text) !important;
-  }
-  .linkedin-badge:hover{color:var(--blue) !important;}
-  .linkedin-icon{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:28px;
-    height:28px;
-    border-radius:6px;
-    background:#0A66C2;
-    flex-shrink:0;
   }
   form{
     background:#fff;
@@ -590,6 +599,22 @@
     gap:10px;
   }
   footer img{height:56px; margin-bottom:8px; filter:brightness(0) invert(1);}
+  .footer-logo{
+    background:var(--cream);
+    border-radius:16px;
+    padding:20px 30px;
+    display:inline-block;
+    margin-bottom:10px;
+    box-shadow:0 10px 26px rgba(0,0,0,0.16);
+  }
+  .footer-logo img{
+    height:auto;
+    width:280px;
+    max-width:64vw;
+    margin:0;
+    filter:none;
+    display:block;
+  }
   footer a{color:#f1efe9; text-decoration:underline;}
   footer .tagline-footer{
     letter-spacing:0.1em;
@@ -736,14 +761,14 @@
     <div class="grid">
       <div class="card reveal reveal-delay-1">
         <h3>Counselling</h3>
-        <p>Individual counselling for children and adults. With your consent, this can include working alongside teachers, GPs, Psychologists, OTs and other specialists involved in your care.</p>
+        <p>Individual counselling for children and adults. With your consent, this can include working alongside teachers, GPs, Psychologists, OTs and other specialists involved in your care. Individual parent consults are also available.</p>
         <div class="tag-row">
           <span class="tag">Grief and loss</span>
           <span class="tag">Anxiety</span>
           <span class="tag">Complex trauma</span>
           <span class="tag">Social skills</span>
           <span class="tag">Parental separation / divorce</span>
-          <span class="tag">Understanding diagnoses (e.g. ASD, ADHD, dyslexia, dyscalculia, and dyspraxia)</span>
+          <span class="tag">Understanding diagnoses (e.g. ASD, ADHD, etc)</span>
           <span class="tag">Self-esteem</span>
           <span class="tag">Protective behaviours</span>
           <span class="tag">Parenting</span>
@@ -806,7 +831,7 @@
       <details class="acc-item">
         <summary>Publications <span class="acc-icon" aria-hidden="true">+</span></summary>
         <div class="acc-body">
-          <p><em>Differing Perspectives</em></p>
+          <p><a href="https://www.wa.gov.au/government/publications/differing-perspectives" target="_blank" rel="noopener"><em>Differing Perspectives</em></a></p>
         </div>
       </details>
     </div>
@@ -965,12 +990,6 @@
       <div class="contact-details">
         <a href="tel:0406872818"><span class="label">Phone</span>0406 872 818</a>
         <a href="#" class="js-email"><span class="label">Email</span><span class="js-email-text">Loading&hellip;</span></a>
-        <a href="https://www.linkedin.com/in/jenny-biancotti-b23b99a2/" target="_blank" rel="noopener" class="linkedin-badge">
-          <span class="linkedin-icon" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.15 1.45-2.15 2.94v5.66H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-          </span>
-          <span>Connect on LinkedIn</span>
-        </a>
       </div>
       <form id="contact-form">
         <div id="form-success">Thanks &mdash; your message has been noted. Jenny will be in touch soon.</div>
@@ -1009,7 +1028,7 @@
   </div>
 </section>
 
-<section class="reveal">
+<section class="reveal ack-section">
   <div class="container">
     <div class="eyebrow">Acknowledgement of Country</div>
     <div class="acknowledgement">
@@ -1021,8 +1040,7 @@
 
 <footer>
   <div class="container">
-    <img src="assets/tree-icon.png" alt="Inspirational Consultations">
-    <div class="tagline-footer">Enhance &middot; Inspire &middot; Engage</div>
+    <div class="footer-logo"><img src="assets/logo-full.png" alt="Inspirational Consultations — Enhance, Inspire, Engage"></div>
     <div><a href="#" class="js-email"><span class="js-email-text">Loading&hellip;</span></a> &middot; <a href="tel:0406872818">0406 872 818</a></div>
     <div class="copyright">&copy; 2026 Inspirational Consultations &mdash; Jenny Biancotti</div>
   </div>
