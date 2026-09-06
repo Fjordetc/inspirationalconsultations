@@ -279,6 +279,7 @@
   }
 
   /* Publication thumbnail */
+  .pub-summary{color:var(--text-soft); font-size:0.95rem; max-width:60ch; margin:2px 0 12px 0;}
   .pub-thumb{display:inline-block; margin-top:6px;}
   .pub-thumb img{
     width:130px;
@@ -522,15 +523,10 @@
     .fee-grid{grid-template-columns:1fr;}
   }
   .fee-note{
-    margin-top:24px;
+    margin-top:22px;
     font-size:1rem;
     line-height:1.6;
-    color:var(--text);
-    background:#fff;
-    border-left:4px solid var(--blue);
-    border-radius:0 12px 12px 0;
-    padding:16px 22px;
-    box-shadow:var(--shadow);
+    color:var(--text-soft);
     position:relative; z-index:1;
   }
 
@@ -750,7 +746,6 @@
       <a href="#approach">Approach</a>
       <a href="#faq">FAQs</a>
       <a href="#feedback">Feedback</a>
-      <a href="#fees">Fees</a>
       <a href="#contact" class="nav-cta">Get in touch</a>
     </nav>
   </div>
@@ -890,6 +885,7 @@
         <summary>Publications <span class="acc-icon" aria-hidden="true">+</span></summary>
         <div class="acc-body">
           <p><a href="https://www.wa.gov.au/government/publications/differing-perspectives" target="_blank" rel="noopener"><em>Differing Perspectives</em></a></p>
+          <p class="pub-summary">A booklet supporting parents, children, families and professionals on the child protection journey to better understand one another's perspectives. A joint initiative of the Department of Communities, CLAN Midland and the Family Inclusion Network of WA.</p>
           <a href="https://www.wa.gov.au/government/publications/differing-perspectives" target="_blank" rel="noopener" class="pub-thumb">
             <img src="assets/differing-perspectives-cover.jpg" alt="Differing Perspectives publication cover">
           </a>
