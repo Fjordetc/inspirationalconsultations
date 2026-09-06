@@ -238,6 +238,8 @@
     object-position:center 30%;
     display:block;
   }
+  .about-logo{text-align:center; margin-top:14px;}
+  .about-logo img{width:118px; height:auto; display:inline-block;}
   .jenny-text-col h3{margin-top:2px;}
   .jenny-text-col p:last-of-type{margin-bottom:0;}
   .bio-list{
@@ -274,6 +276,57 @@
     border-radius:999px;
     font-size:0.85rem;
     font-weight:700;
+  }
+
+  /* Publication thumbnail */
+  .pub-thumb{display:inline-block; margin-top:6px;}
+  .pub-thumb img{
+    width:130px;
+    height:auto;
+    border-radius:8px;
+    box-shadow:var(--shadow);
+    border:1px solid rgba(120,130,110,0.15);
+    display:block;
+  }
+
+  /* Featured quote breakout */
+  .quote-breakout{
+    background:var(--sage-soft);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:32px 40px;
+    margin-top:40px;
+    max-width:760px;
+  }
+  .quote-breakout-mark{
+    font-family:'Fraunces', serif;
+    font-size:3.4rem;
+    line-height:0.6;
+    color:var(--sage-deep);
+    display:block;
+    margin-bottom:6px;
+  }
+  .quote-breakout-text{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:1.22rem;
+    line-height:1.6;
+    color:var(--text);
+    margin:0 0 20px 0;
+  }
+  .quote-breakout-attr{
+    font-weight:700;
+    color:var(--sage-deep);
+    font-size:0.98rem;
+  }
+  .quote-breakout-attr span{
+    display:block;
+    font-weight:400;
+    font-style:italic;
+    color:var(--text-soft);
+    font-size:0.88rem;
+    margin-top:2px;
   }
 
   /* Sections alternating tint */
@@ -450,31 +503,35 @@
   .quote-dot.active{background:var(--sage-deep); transform:scale(1.25);}
 
   /* Fees */
-  .fee-table{
+  .fee-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:30px;
+    position:relative; z-index:1;
+  }
+  .fee-cell{
     background:#fff;
     border-radius:var(--radius);
     box-shadow:var(--shadow);
-    padding:8px 0;
-    margin-top:30px;
-    overflow:hidden;
-    position:relative; z-index:1;
+    padding:22px 26px;
   }
-  .fee-row{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    padding:18px 28px;
-    border-bottom:1px solid rgba(120,130,110,0.12);
+  .fee-cell .service{font-weight:700; color:var(--text); margin-bottom:5px;}
+  .fee-cell .detail{color:var(--text-soft); font-size:0.92rem;}
+  @media (max-width: 640px){
+    .fee-grid{grid-template-columns:1fr;}
   }
-  .fee-row:last-child{border-bottom:none;}
-  .fee-row .service{font-weight:700; color:var(--text);}
-  .fee-row .detail{color:var(--text-soft); font-size:0.92rem;}
-  .fee-row .price{font-weight:700; color:var(--blue); white-space:nowrap;}
   .fee-note{
-    margin-top:18px;
-    font-size:0.76rem;
-    color:var(--text-soft);
-    font-style:italic;
+    margin-top:24px;
+    font-size:1rem;
+    line-height:1.6;
+    color:var(--text);
+    background:#fff;
+    border-left:4px solid var(--blue);
+    border-radius:0 12px 12px 0;
+    padding:16px 22px;
+    box-shadow:var(--shadow);
+    position:relative; z-index:1;
   }
 
   /* Location */
@@ -725,18 +782,19 @@
     <h2>Why Inspirational Consultations?</h2>
       <p class="lead-in">It is an incredible privilege to be chosen by someone to work alongside them.</p>
       <p class="lead-in">After many years of supporting children, families and professionals, I continue to be inspired by those I am privileged to support. Their strength, their experiences and their desire to grow is what draws me to this work. Inspirational Consultations is about coming together &ndash; not with myself as the expert but with me supporting you to explore and grow what you know to be right for you. Be it as a parent, a child, an individual or a professional developing your practice and sense of self.</p>
-      <p class="lead-in">In a world where there a so many supports, interventions and information surrounding us daily, navigating our way forward can at times become overwhelming. For inspiration to occur I feel we need space. A space to connect, to be heard, to explore and engage in a process that allows you to identify what will work for you - towards your own personal goals, intentions and values. Inspirational Consultations sets out to provide a space for you.</p>
+      <p class="lead-in">In a world where there are so many supports, interventions and information surrounding us daily, navigating our way forward can at times become overwhelming. For inspiration to occur I feel we need space. A space to connect, to be heard, to explore and engage in a process that allows you to identify what will work for you - towards your own personal goals, intentions and values. Inspirational Consultations sets out to provide a space for you.</p>
 
       <div class="jenny-card jenny-card-split reveal">
         <div class="jenny-photo-col">
           <div class="photo-portrait">
             <img src="assets/jenny-photo.jpg" alt="Jenny Biancotti">
           </div>
+          <div class="about-logo"><img src="assets/aasw-badge.png" alt="AASW Social Worker Member"></div>
         </div>
         <div class="jenny-text-col">
           <h3>A bit about me</h3>
           <p>I am a social worker with over 20 years' experience supporting children and families across Perth and London. My work has spanned school settings, the child protection sector and private practice, where I've helped families navigate a wide range of challenges, including:</p>
-          <ul class="bio-list">
+          <ul class="bio-list" style="margin-top:16px;">
             <li>Grief and loss</li>
             <li>Anxiety</li>
             <li>Complex trauma</li>
@@ -824,7 +882,7 @@
             <li>Supporting neurodivergence in the school settings</li>
             <li>Differing perspectives in the child protection setting</li>
           </ul>
-          <p class="contact-line">Please feel free to <a href="#contact">contact me</a> to discuss your individual or organisations training needs.</p>
+          <p class="contact-line">Please <a href="#contact">contact me</a> to explore what I can offer you or your place of work.</p>
         </div>
       </details>
 
@@ -832,6 +890,9 @@
         <summary>Publications <span class="acc-icon" aria-hidden="true">+</span></summary>
         <div class="acc-body">
           <p><a href="https://www.wa.gov.au/government/publications/differing-perspectives" target="_blank" rel="noopener"><em>Differing Perspectives</em></a></p>
+          <a href="https://www.wa.gov.au/government/publications/differing-perspectives" target="_blank" rel="noopener" class="pub-thumb">
+            <img src="assets/differing-perspectives-cover.jpg" alt="Differing Perspectives publication cover">
+          </a>
         </div>
       </details>
     </div>
@@ -854,6 +915,12 @@
       <span class="chip-grey">Play-Based Approaches</span>
       <span class="chip-grey">Social Skills Programs (Kimochis, UR Strong, Grow Your Mind)</span>
       <span class="chip-grey">Somatic Practices</span>
+    </div>
+
+    <div class="quote-breakout reveal">
+      <span class="quote-breakout-mark" aria-hidden="true">&ldquo;</span>
+      <p class="quote-breakout-text">Connection is the energy that exists between people when they feel seen, heard, and valued; when they can give and receive without judgment, and when they derive sustenance and strength from the relationship.</p>
+      <div class="quote-breakout-attr">Bren&eacute; Brown<span>The Gifts of Imperfection, 10th anniversary edition</span></div>
     </div>
   </div>
 </section>
@@ -945,39 +1012,26 @@
 
 <section id="fees" class="tint reveal">
   <div class="container">
-    <div class="eyebrow">Fees</div>
-    <h2>Session rates</h2>
-    <div class="fee-table">
-      <div class="fee-row">
-        <div>
-          <div class="service">Supervision</div>
-          <div class="detail">In person (Mondays) or online (Mondays, Thursdays &amp; Fridays)</div>
-        </div>
-        <div class="price">$165 / session</div>
+    <h2>Sessions</h2>
+    <div class="fee-grid">
+      <div class="fee-cell">
+        <div class="service">Supervision</div>
+        <div class="detail">In person (Mondays) or online (Mondays, Thursdays &amp; Fridays)</div>
       </div>
-      <div class="fee-row">
-        <div>
-          <div class="service">Social Work Support &mdash; Children (0&ndash;18)</div>
-          <div class="detail">In person, Mondays &middot; 50 minutes</div>
-        </div>
-        <div class="price">$110 / session</div>
+      <div class="fee-cell">
+        <div class="service">Social Work Support &mdash; Children (0&ndash;18)</div>
+        <div class="detail">In person, Mondays &middot; 50 minutes</div>
       </div>
-      <div class="fee-row">
-        <div>
-          <div class="service">Social Work Support &mdash; Adults</div>
-          <div class="detail">In person, Mondays &middot; 1 hour</div>
-        </div>
-        <div class="price">$120 / session</div>
+      <div class="fee-cell">
+        <div class="service">Social Work Support &mdash; Adults</div>
+        <div class="detail">In person, Mondays &middot; 1 hour</div>
       </div>
-      <div class="fee-row">
-        <div>
-          <div class="service">Parent Consultation</div>
-          <div class="detail">Phone or in person, including follow-ups</div>
-        </div>
-        <div class="price">Enquire</div>
+      <div class="fee-cell">
+        <div class="service">Parent Consultation</div>
+        <div class="detail">Phone or in person, including follow-ups</div>
       </div>
     </div>
-    <p class="fee-note">No Medicare rebate applies to sessions at this time. Fees current as of 2026 &mdash; please get in touch to confirm current pricing and availability.</p>
+    <p class="fee-note">No Medicare rebate applies to sessions at this time. Please get in touch to confirm current pricing and availability.</p>
   </div>
 </section>
 
@@ -989,7 +1043,6 @@
     <div class="contact-wrap">
       <div class="contact-details">
         <a href="tel:0406872818"><span class="label">Phone</span>0406 872 818</a>
-        <a href="#" class="js-email"><span class="label">Email</span><span class="js-email-text">Loading&hellip;</span></a>
       </div>
       <form id="contact-form">
         <div id="form-success">Thanks &mdash; your message has been noted. Jenny will be in touch soon.</div>
@@ -1041,26 +1094,12 @@
 <footer>
   <div class="container">
     <div class="footer-logo"><img src="assets/logo-full.png" alt="Inspirational Consultations — Enhance, Inspire, Engage"></div>
-    <div><a href="#" class="js-email"><span class="js-email-text">Loading&hellip;</span></a> &middot; <a href="tel:0406872818">0406 872 818</a></div>
+    <div><a href="tel:0406872818">0406 872 818</a></div>
     <div class="copyright">&copy; 2026 Inspirational Consultations &mdash; Jenny Biancotti</div>
   </div>
 </footer>
 
 <script>
-  // Email is base64-encoded here and decoded on load, rather than sitting in
-  // the page source as plain text — a simple deterrent against basic scrapers
-  // that just regex raw HTML/JS for an @ address. Not bulletproof, but stops
-  // the low-effort harvesting that plain-text addresses invite.
-  (function(){
-    var addr = atob('aW5zcGlyZWRfY29tbXVuaWNhdGlvbnNAb3V0bG9vay5jb20=');
-    document.querySelectorAll('.js-email').forEach(function(a){
-      a.href = 'mailto:' + addr;
-    });
-    document.querySelectorAll('.js-email-text').forEach(function(el){
-      el.textContent = addr;
-    });
-  })();
-
   // Manual nav-link scrolling (rather than relying on CSS scroll-margin-top,
   // which some browsers apply inconsistently for anchor navigation). Each
   // link gets an explicit pixel offset so it lands exactly where intended —
