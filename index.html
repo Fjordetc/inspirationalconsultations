@@ -164,7 +164,7 @@
     gap:36px;
     align-items:center;
   }
-  .tree-frame{width:190px; flex-shrink:0;}
+  .tree-frame{width:235px; flex-shrink:0;}
   .tree-frame img{width:100%; height:auto; display:block; filter:drop-shadow(0 12px 22px rgba(90,110,80,0.16));}
 
   .hero-block{max-width:52ch;}
@@ -242,17 +242,6 @@
   .about-logo img{width:118px; height:auto; display:inline-block;}
   .jenny-text-col h3{margin-top:2px;}
   .jenny-text-col p:last-of-type{margin-bottom:0;}
-  .bio-list{
-    margin:0;
-    padding-left:20px;
-    color:var(--text-soft);
-    columns:2;
-    column-gap:34px;
-  }
-  .bio-list li{margin-bottom:6px; break-inside:avoid;}
-  @media (max-width: 760px){
-    .bio-list{columns:1;}
-  }
   .chips{
     display:flex;
     flex-wrap:wrap;
@@ -307,6 +296,11 @@
     display:block;
     margin-bottom:6px;
   }
+  .quote-breakout-mark.close{
+    text-align:right;
+    margin:-6px 0 14px 0;
+    line-height:0.2;
+  }
   .quote-breakout-text{
     font-family:'Fraunces', serif;
     font-style:italic;
@@ -314,7 +308,7 @@
     font-size:1.22rem;
     line-height:1.6;
     color:var(--text);
-    margin:0 0 20px 0;
+    margin:0 0 6px 0;
   }
   .quote-breakout-attr{
     font-weight:700;
@@ -328,6 +322,26 @@
     color:var(--text-soft);
     font-size:0.88rem;
     margin-top:2px;
+  }
+  /* Quote breakout with an accompanying image alongside */
+  .quote-breakout-split{
+    display:grid;
+    grid-template-columns:1fr 240px;
+    gap:32px;
+    align-items:center;
+    max-width:860px;
+  }
+  .quote-figure{margin:0;}
+  .quote-figure img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:14px;
+    box-shadow:0 8px 22px rgba(80,90,70,0.14);
+  }
+  @media (max-width: 720px){
+    .quote-breakout-split{grid-template-columns:1fr; gap:22px;}
+    .quote-figure{order:-1; max-width:320px; margin:0 auto;}
   }
 
   /* Sections alternating tint */
@@ -463,10 +477,17 @@
     height:0.5em;
     margin-bottom:10px;
   }
+  .quote-mark.close{
+    height:auto;
+    text-align:right;
+    margin:-4px 0 12px 0;
+    line-height:0.2;
+  }
   .quote-text{
     color:var(--text);
     font-size:1.02rem;
-    margin-bottom:18px;
+    font-style:italic;
+    margin-bottom:6px;
   }
   .quote-attr{
     font-weight:700;
@@ -503,44 +524,39 @@
   }
   .quote-dot.active{background:var(--sage-deep); transform:scale(1.25);}
 
-  /* Fees */
-  .fee-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-    margin-top:30px;
-    position:relative; z-index:1;
-  }
-  .fee-cell{
-    background:#fff;
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    padding:22px 26px;
-  }
-  .fee-cell .service{font-weight:700; color:var(--text); margin-bottom:5px;}
-  .fee-cell .detail{color:var(--text-soft); font-size:0.92rem;}
-  @media (max-width: 640px){
-    .fee-grid{grid-template-columns:1fr;}
-  }
-  .fee-note{
-    margin-top:22px;
-    font-size:1rem;
-    line-height:1.6;
+  /* Sessions */
+  .session-note{
+    margin-top:26px;
+    font-size:1.05rem;
+    line-height:1.7;
     color:var(--text-soft);
+    max-width:70ch;
     position:relative; z-index:1;
   }
+  .session-note p:last-child{margin-bottom:0;}
 
   /* Location */
   .location-box{
     display:flex;
-    gap:20px;
-    align-items:flex-start;
+    gap:28px;
+    align-items:center;
     background:#fff;
     border-radius:var(--radius);
     box-shadow:var(--shadow);
     padding:28px;
     margin-top:30px;
     position:relative; z-index:1;
+  }
+  .location-photo{
+    flex:0 0 42%;
+    max-width:380px;
+  }
+  .location-photo img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:14px;
+    box-shadow:0 8px 22px rgba(80,90,70,0.14);
   }
 
   /* Acknowledgement */
@@ -683,7 +699,7 @@
 
   @media (max-width: 900px){
     .hero-wrap{grid-template-columns:1fr; gap:20px; padding-top:40px;}
-    .tree-frame{width:130px; order:-1;}
+    .tree-frame{width:160px; order:-1;}
     .jenny-card-split{grid-template-columns:1fr; gap:22px;}
     .photo-portrait{max-width:300px; margin:0 auto;}
     .grid{grid-template-columns:1fr;}
@@ -714,7 +730,8 @@
   }
   @media (max-width: 800px){
     .contact-wrap{grid-template-columns:1fr;}
-    .location-box{flex-direction:column;}
+    .location-box{flex-direction:column; align-items:stretch;}
+    .location-photo{flex:none; max-width:none;}
     .quote-slide{padding:28px 24px 26px 24px;}
   }
   @media (max-width: 520px){
@@ -775,9 +792,21 @@
 <section id="about" class="about-section reveal">
   <div class="about-inner">
     <h2>Why Inspirational Consultations?</h2>
-      <p class="lead-in">It is an incredible privilege to be chosen by someone to work alongside them.</p>
-      <p class="lead-in">After many years of supporting children, families and professionals, I continue to be inspired by those I am privileged to support. Their strength, their experiences and their desire to grow is what draws me to this work. Inspirational Consultations is about coming together &ndash; not with myself as the expert but with me supporting you to explore and grow what you know to be right for you. Be it as a parent, a child, an individual or a professional developing your practice and sense of self.</p>
-      <p class="lead-in">In a world where there are so many supports, interventions and information surrounding us daily, navigating our way forward can at times become overwhelming. For inspiration to occur I feel we need space. A space to connect, to be heard, to explore and engage in a process that allows you to identify what will work for you - towards your own personal goals, intentions and values. Inspirational Consultations sets out to provide a space for you.</p>
+      <p class="lead-in">I understand that when you are looking for support, finding the right person is important and it is an incredible privilege to be chosen by someone to work alongside them.</p>
+      <p class="lead-in">After many years of supporting children, families and professionals, I continue to be inspired by those I am privileged to support. Their strength, their experiences and their desire to grow is what draws me to this work. Inspirational Consultations is about coming together to explore and grow what you know to be right for you.</p>
+      <p class="lead-in">In a world where there are so many supports, interventions and information surrounding us daily, navigating our way forward can at times become overwhelming. For inspiration to occur I feel we need space. A space to connect, to be heard, to explore and engage in a process that allows you to identify what will work for you &ndash; towards your own personal goals, intentions and values. Inspirational Consultations sets out to provide a space for you.</p>
+
+      <div class="quote-breakout quote-breakout-split reveal">
+        <div>
+          <span class="quote-breakout-mark" aria-hidden="true">&ldquo;</span>
+          <p class="quote-breakout-text">Connection requires vulnerability and the courage to be authentic and genuine.</p>
+          <span class="quote-breakout-mark close" aria-hidden="true">&rdquo;</span>
+          <div class="quote-breakout-attr">Bren&eacute; Brown</div>
+        </div>
+        <figure class="quote-figure">
+          <img src="assets/seedling.jpg" alt="A young seedling growing in soil, lit by sunlight">
+        </figure>
+      </div>
 
       <div class="jenny-card jenny-card-split reveal">
         <div class="jenny-photo-col">
@@ -788,20 +817,9 @@
         </div>
         <div class="jenny-text-col">
           <h3>A bit about me</h3>
-          <p>I am a social worker with over 20 years' experience supporting children and families across Perth and London. My work has spanned school settings, the child protection sector and private practice, where I've helped families navigate a wide range of challenges, including:</p>
-          <ul class="bio-list" style="margin-top:16px;">
-            <li>Grief and loss</li>
-            <li>Anxiety</li>
-            <li>Complex trauma</li>
-            <li>Social skills</li>
-            <li>Life transitions (parental separation, foster care placement changes, parental illness or loss)</li>
-            <li>Understanding diagnoses (e.g. ASD, ADHD, dyslexia, dyscalculia, and dyspraxia)</li>
-            <li>Self-esteem</li>
-            <li>Identity</li>
-            <li>Protective behaviours</li>
-            <li>Parenting</li>
-            <li>Supporting neurodivergence in school and home settings</li>
-          </ul>
+          <p>I am a person with lived experience, a Mum to 3 boys, a wife, a sister, a friend and a social worker with over 20 years' experience supporting children, families and professionals across Perth and London. I aim to be honest, authentic, real and open. I have worked in a variety of roles within different sectors including schools, child protection services, and private practice, where I've leaned on my learned and lived experiences to help individuals, families and professionals navigate a wide range of challenges.</p>
+          <p>My approach to counselling and supervision is client-centred and grounded in connection. I believe my role is to walk alongside you, holding space for you to be heard, and helping you move toward the clarity and direction you're seeking. I work in ways that are trauma-informed, neuroaffirming, and strengths-based, recognising that every person's needs are different and that real strengths often sit alongside genuine struggle. I also bring an intersectional lens to my practice, acknowledging that race, culture, gender, sexuality, class, ability, neurodivergence and other aspects of identity all shape how a person experiences the world &mdash; and how the world responds to them in turn. I encourage staying present and acting in line with what matters most to you, alongside making peace with what can't be changed. I bring compassion and acceptance to this work &mdash; of others and of myself &mdash; and a good dose of vulnerability: I don't claim to be the expert on your life. I'm someone with my own experience, training, strengths and growth in progress, always learning and always open to feedback that helps me grow.</p>
+          <p>Be it a one-off consultation to help you move past a hurdle, or regular sessions, I look forward to connecting with you.</p>
         </div>
       </div>
   </div>
@@ -854,9 +872,23 @@
     <!-- Expandable detail so the overview stays clean; open a heading for more -->
     <div class="accordion">
       <details class="acc-item">
+        <summary>Counselling Services <span class="acc-icon" aria-hidden="true">+</span></summary>
+        <div class="acc-body">
+          <p>Choosing the right person to support you can be difficult. I encourage all new clients to speak with me over the phone first, for a free 10-minute initial chat. This gives us both a chance to explore whether and how I might be able to support you, for you to ask any questions, and for us to see if it feels like the right fit.</p>
+          <p class="sub-label">Adult Sessions</p>
+          <p>I provide support to adults around a range of issues such as anxiety, grief, neurodivergence, parenting challenges and more. Please reach out to arrange a 10-minute consult so we can explore whether I'm well placed to support you.</p>
+          <p class="sub-label">Children's Sessions</p>
+          <p>I provide support to children and young people from birth through to 18, in response to a range of concerns. I tailor my approach and the interventions I use to the needs of the child I'm supporting &mdash; this can include play-based and other therapeutic approaches such as Lego, symbols, drumming, and more. My work with children and young people is collaborative, involving parents and any other professionals where appropriate, while always maintaining the child's confidentiality.</p>
+          <p class="sub-label">Parent Consult</p>
+          <p>These consultations are available to parents as a one-off or ongoing, as needed. They provide a space for us to explore information and practical strategies that may help with challenges you're facing in parenting. As an alternative to child counselling sessions, a parent consult can also help you support your child directly &mdash; I can talk you through ways to engage in discussions and activities with your child around the specific challenge they're experiencing. Following a consult, I'll often send through resources to read or use, based on what we've discussed.</p>
+          <p class="contact-line">Please <a href="#contact">contact me</a> to arrange a free 10-minute chat.</p>
+        </div>
+      </details>
+
+      <details class="acc-item">
         <summary>Supervision Services <span class="acc-icon" aria-hidden="true">+</span></summary>
         <div class="acc-body">
-          <p>I currently provide supervision to a range of professionals working in support services across various sectors including education, domestic violence, drug and alcohol and child protection.</p>
+          <p>I currently provide supervision to a range of professionals working in support services across various sectors including education, domestic violence, addiction and child protection.</p>
           <p>Supervision can be provided in person or online. I am registered with the AASW and can provide necessary professional insurances for organisations wishing to engage my clinical supervision services.</p>
           <p class="contact-line">Please feel free to <a href="#contact">contact me</a> to discuss how I might be able to support your individual or organisations supervision needs.</p>
         </div>
@@ -899,8 +931,7 @@
   <div class="container">
     <div class="eyebrow">My approach</div>
     <h2>Grounded in compassion and connection</h2>
-    <p class="lead-in">Connection with those I support is at the centre of my work. I believe that meaningful change happens when people feel genuinely seen, heard and understood. Working in a client-centred and strengths-based way, I draw on extensive training and experience in trauma-informed and neuro-affirming practice to tailor my approach to each individual.</p>
-    <p class="lead-in" style="margin-bottom:10px;">Together, we explore what will work best for you, which may include approaches such as:</p>
+    <p class="lead-in" style="margin-bottom:10px;">Every person's needs are different, so together we explore what will work best for you. This may include approaches such as:</p>
     <div class="chips">
       <span class="chip-grey">Life Story Work</span>
       <span class="chip-grey">Therapeutic Drumming</span>
@@ -916,6 +947,7 @@
     <div class="quote-breakout reveal">
       <span class="quote-breakout-mark" aria-hidden="true">&ldquo;</span>
       <p class="quote-breakout-text">Connection is the energy that exists between people when they feel seen, heard, and valued; when they can give and receive without judgment, and when they derive sustenance and strength from the relationship.</p>
+      <span class="quote-breakout-mark close" aria-hidden="true">&rdquo;</span>
       <div class="quote-breakout-attr">Bren&eacute; Brown<span>The Gifts of Imperfection, 10th anniversary edition</span></div>
     </div>
   </div>
@@ -965,30 +997,35 @@
         <div class="quote-slide active">
           <span class="quote-mark" aria-hidden="true">&ldquo;</span>
           <p class="quote-text">Jenny is truly amazing and deeply passionate about the work she does. Her dedication to clients and her ability to navigate the complexities of these challenges in our FDV community service field we work in is outstanding. Whether it's workplace dynamics, workplace burnout, or the challenges of workplace stressors with victims and our vicarious traumas we face often, and their comorbidities that relay onto our health in this field, her responses are always inspiring and on point. Jenny provides exceptional supervision each and every time; especially on days when I've arrived in tears and I've left feeling grounded and supported, honoured, and cherished in the work we do. Her guidance, her little gifts, and her support is circulatory, its electric and it transfers, whether through practical strategies or calming techniques, her ideas never cease to amaze me! We are so lucky to have her, and anyone who works with her, I can guarantee will feel the same. Thank you, Jenny, for everything that you do for each and everyone of us, you make a real difference to the lives you touch.</p>
+          <span class="quote-mark close" aria-hidden="true">&rdquo;</span>
           <div class="quote-attr">Supervisee</div>
         </div>
 
         <div class="quote-slide">
           <span class="quote-mark" aria-hidden="true">&ldquo;</span>
           <p class="quote-text">I want to express my sincere appreciation for the support you have given me. Your presence makes me feel heard, supported and motivated to achieve my best work. I've learned so much from our supervision sessions where you have offered a different perspective backed by years of social work experience. I'm grateful for the confidence you have placed in me and always cheering me on.</p>
+          <span class="quote-mark close" aria-hidden="true">&rdquo;</span>
           <div class="quote-attr">Supervisee</div>
         </div>
 
         <div class="quote-slide">
           <span class="quote-mark" aria-hidden="true">&ldquo;</span>
           <p class="quote-text">It is rare to come across someone so obviously suited to their profession. Jenny, you have compassionately and professionally guided our daughter through some of her most challenging times, whilst respectfully within the boundaries of confidentiality kept in contact with us as concerned parents. Your gentle, thoughtful approach has been greatly appreciated, and we simply cannot thank you enough.</p>
+          <span class="quote-mark close" aria-hidden="true">&rdquo;</span>
           <div class="quote-attr">Parent &ndash; Counselling Client</div>
         </div>
 
         <div class="quote-slide">
           <span class="quote-mark" aria-hidden="true">&ldquo;</span>
           <p class="quote-text">Jenny creates a safe and supportive space where reflection, growth and learning flow beautifully together. She shows up every time with her authenticity, utilising her knowledge and professional years of experience to guide you. I have been using her through my work and have also chosen to utilise her services personally due to the excellent outcomes I achieve during my sessions with her. I would happily recommend her services.</p>
+          <span class="quote-mark close" aria-hidden="true">&rdquo;</span>
           <div class="quote-attr">Supervisee</div>
         </div>
 
         <div class="quote-slide">
           <span class="quote-mark" aria-hidden="true">&ldquo;</span>
           <p class="quote-text">I really appreciate the quality of supervision I receive from Jenny. I experience our supervision space as safe, thoughtful and reflective, where I always feel supported.<br><br>Jenny is always able to balance challenge with compassion, to encourage critical thinking, to support my practice and professional goals with invaluable insights and reflections.<br><br>I truly value Jenny's depth of knowledge and experience, and the way she holds all of this with kindness, integrity, and professionalism.</p>
+          <span class="quote-mark close" aria-hidden="true">&rdquo;</span>
           <div class="quote-attr">Supervisee</div>
         </div>
 
@@ -1009,25 +1046,10 @@
 <section id="fees" class="tint reveal">
   <div class="container">
     <h2>Sessions</h2>
-    <div class="fee-grid">
-      <div class="fee-cell">
-        <div class="service">Supervision</div>
-        <div class="detail">In person (Mondays) or online (Mondays, Thursdays &amp; Fridays)</div>
-      </div>
-      <div class="fee-cell">
-        <div class="service">Social Work Support &mdash; Children (0&ndash;18)</div>
-        <div class="detail">In person, Mondays &middot; 50 minutes</div>
-      </div>
-      <div class="fee-cell">
-        <div class="service">Social Work Support &mdash; Adults</div>
-        <div class="detail">In person, Mondays &middot; 1 hour</div>
-      </div>
-      <div class="fee-cell">
-        <div class="service">Parent Consultation</div>
-        <div class="detail">Phone or in person, including follow-ups</div>
-      </div>
+    <div class="session-note">
+      <p>Available for in person sessions Mondays in Mount Lawley. Online sessions can also be arranged.</p>
+      <p>Please <a href="#contact">contact me</a> to discuss fees and availability.</p>
     </div>
-    <p class="fee-note">No Medicare rebate applies to sessions at this time. Please get in touch to confirm current pricing and availability.</p>
   </div>
 </section>
 
@@ -1069,9 +1091,12 @@
     <div class="eyebrow">Location</div>
     <h2>Where are you located</h2>
     <div class="location-box">
+      <div class="location-photo">
+        <img src="assets/consulting-room.jpg" alt="Jenny's consulting room in Mount Lawley — a light room with a sofa, armchair and artwork">
+      </div>
       <div>
         <p style="margin-bottom:6px;"><strong>3/1 Almondbury Rd, Mount Lawley</strong></p>
-        <p style="color:var(--text-soft); margin-bottom:0;">My consulting room is located at 3/1 Almondbury Rd Mount Lawley. I am available Mondays. *Please note the room is located upstairs with no lift access. Please speak with me if you have concerns re: mobility and access.</p>
+        <p style="color:var(--text-soft); margin-bottom:0;">I am available Mondays. Please note the room is located upstairs with no lift access &mdash; please speak with me if you have any concerns about mobility and access.</p>
       </div>
     </div>
   </div>
